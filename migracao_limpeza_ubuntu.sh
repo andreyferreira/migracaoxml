@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -n $(date +%F,%H:%M:%S) + " - Migração Inicializada!"
+echo -n "$(date +%F,%H:%M:%S) - Migração Inicializada!"
 cd /var/www
 
 
