@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+echo -n "$(date +%F,%H:%M:%S) - Migração Inicializada!"
 cd /var/www
 
 
@@ -44,15 +44,17 @@ do
         CHKLIMPEZA=$(cat /var/log/limpeza_xml.log | grep -c 'motivo: 4')
         if [ $CHKLIMPEZA -ne 5 ]
         then
-            echo -n "Migração não foi finalizada. " > /var/log/migracao_xml.log
+            echo -n "Migração em andamento. " > /var/log/migracao_xml.log
             echo $(date +%F,%H:%M:%S) >> /var/log/migracao_xml.log
             migracao_xml
             limpeza_xml 1>/var/log/limpeza_xml.log
             validacao_migrar
         else
-            echo -e "Subject: RETORNO MIGRAÇÃO\n\n Migração do(a) $cliente realizada com sucesso! \n" | sendmail 'andrey@illimitar.com.br';
+            
+            echo -n "$(date +%F,%H:%M:%S) - Migração e limpeza Finalizada!" >> /var/log/migracao_xml.log
+            echo -n "$(date +%F,%H:%M:%S) - Migração e limpeza Finalizada!"
             break
-    fi
+        fi
 
     }
 
