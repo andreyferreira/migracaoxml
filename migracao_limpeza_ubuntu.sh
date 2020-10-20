@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -n "$(date +%F,%H:%M:%S) - Migração Inicializada!"
+echo -e "$(date +%F,%H:%M:%S) - Migração Inicializada!"
 cd /var/www
 
 
@@ -50,8 +50,8 @@ do
             limpeza_xml 1>/var/log/limpeza_xml.log
             validacao_migrar
         else
-            echo -n "$(date +%F,%H:%M:%S) - Migração e limpeza Finalizada!" >> /var/log/migracao_xml.log
-            echo -n "$(date +%F,%H:%M:%S) - Migração e limpeza Finalizada!"
+            echo -e "$(date +%F,%H:%M:%S) - Migração e limpeza Finalizada!" >> /var/log/migracao_xml.log
+            echo -e "$(date +%F,%H:%M:%S) - Migração e limpeza Finalizada!"
             break
     fi
 
